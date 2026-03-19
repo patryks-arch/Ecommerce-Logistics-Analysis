@@ -1,0 +1,66 @@
+-- public.olist_customers definition
+
+-- Drop table
+
+-- DROP TABLE public.olist_customers;
+
+CREATE TABLE public.olist_customers (
+	customer_id varchar(100) NULL,
+	customer_unique_id varchar(100) NULL,
+	customer_zip_code_prefix varchar(5) NULL,
+	customer_city varchar(50) NULL,
+	customer_state bpchar(2) NULL
+);
+
+-- public.olist_order_items definition
+
+-- Drop table
+
+-- DROP TABLE public.olist_order_items;
+
+CREATE TABLE public.olist_order_items (
+	order_id varchar(100) NULL,
+	order_item_id int4 NULL,
+	product_id varchar(100) NULL,
+	seller_id varchar(100) NULL,
+	shipping_limit_date timestamp NULL,
+	price numeric(10, 2) NULL,
+	freight_value numeric(10, 2) NULL
+);
+
+-- public.olist_orders definition
+
+-- Drop table
+
+-- DROP TABLE public.olist_orders;
+
+CREATE TABLE public.olist_orders (
+	order_id varchar(100) NOT NULL,
+	customer_id varchar(100) NULL,
+	order_status varchar(50) NULL,
+	order_purchase_timestamp timestamp NULL,
+	order_approved_at timestamp NULL,
+	order_delivered_carrier_date timestamp NULL,
+	order_delivered_customer_date timestamp NULL,
+	order_estimated_delivery_date timestamp NULL,
+	CONSTRAINT olist_orders_pkey PRIMARY KEY (order_id)
+);
+
+-- public.olist_products definition
+
+-- Drop table
+
+-- DROP TABLE public.olist_products;
+
+CREATE TABLE public.olist_products (
+	product_id varchar(100) NOT NULL,
+	product_category_name varchar(100) NULL,
+	product_name_lenght int4 NULL,
+	product_description_lenght int4 NULL,
+	product_photos_qty int4 NULL,
+	product_weight_g int4 NULL,
+	product_length_cm int4 NULL,
+	product_height_cm int4 NULL,
+	product_width_cm int4 NULL,
+	CONSTRAINT olist_products_pkey PRIMARY KEY (product_id)
+);

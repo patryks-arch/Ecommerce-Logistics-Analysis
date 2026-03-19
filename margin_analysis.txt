@@ -1,0 +1,27 @@
+--Obliczanie realniej rentowności--
+select 
+	oi.order_id,
+	p.product_category_name,
+	oi.price,
+	oi.freight_value,
+	(oi.price + oi.freight_value) as total_value,
+	case
+		when freight_value < 20 then 'Tanie w wysyłce'
+		else 'Drogie w wysyłce'
+	end as Wysylka
+from olist_orders o 
+join olist_order_items oi on o.order_id = oi.order_id
+join olist_products p on oi.product_id = p.product_id
+limit 20;
+
+SELECT 
+    p.product_category_name,
+    COUNT(oi.order_id) AS liczba_sprzedanych,
+    ROUND(SUM(oi.price), 2) AS suma_przychodu,
+    ROUND(SUM(oi.freight_value), 2) AS suma_kosztow_wysylki,
+    ROUND((SUM(oi.freight_value) / (SUM(oi.price) + SUM(oi.freight_value))) * 100, 2) AS procent_kosztu_logistyki
+FROM olist_order_items oi
+JOIN olist_products p ON oi.product_id = p.product_id
+GROUP BY p.product_category_name
+HAVING SUM(oi.price) > 1000
+ORDER BY procent_kosztu_logistyki DESC;
