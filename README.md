@@ -1,23 +1,26 @@
 # Ecommerce-Logistics-Analysis
-Analiza wpływu kosztów wysyłki na rentowność sprzedaży w brazylijskim sektorze e-commerce. Celem było zidentyfikowanie kategorii produktów, w których logistyka pochłania zbyt dużą część przychodu.
+An analysis of the impact of shipping costs on sales profitability in the Brazilian e-commerce sector. The goal was to identify product categories where logistics consume an excessively large share of revenue.
 
-Wykorzystane technologie
-Baza danych: PostgreSQL (Modelowanie relacyjne, import danych ETL)
+Technologies Used
 
-Język zapytań: SQL (Joins, Aggregations, Case Statements, NULLIF)
+- Database: PostgreSQL (Relational modeling, ETL data import)
 
-Wizualizacja: Power BI (Native SQL Queries, DAX, Interactive Dashboards)
+- Query Language: SQL (Joins, Aggregations, Case Statements, NULLIF)
 
-Zawartość folderu
-Database_Setup.sql – Kod tworzący strukturę tabel i definiujący relacje (Primary/Foreign Keys).
+- Visualization: Power BI (Native SQL Queries, DAX, Interactive Dashboards)
 
-margin_analysis.sql – Główny silnik analityczny łączący dane o zamówieniach, produktach i cenach.
+Folder Contents
 
-Olist_Delivery_Analysis.pbix – Interaktywny raport Power BI.
+- Database_Setup.sql – Code creating table structures and defining relationships (Primary/Foreign Keys).
 
-Kluczowe wnioski
-Zidentyfikowano kategorie (np. flores, moveis_casa), gdzie koszt wysyłki przekracza 25% wartości produktu.
+- margin_analysis.sql – Main analytical engine joining order, product, and price data.
 
-Stworzono miarę Zysk Szacunkowy, pozwalającą na szybkie filtrowanie kategorii o ujemnej marży po uwzględnieniu logistyki.
+- Olist_Delivery_Analysis.pbix – Interactive Power BI report.
 
-Dashboard umożliwia dynamiczną segmentację produktów na "Tanie" i "Drogie" w wysyłce, co wspiera decyzje o zmianie polityki darmowych dostaw.
+Key Findings
+
+- Identified categories (e.g., flores, moveis_casa) where shipping costs exceed 25% of the product value.
+
+- Created an Estimated Profit metric to quickly filter categories operating on negative margins after accounting for logistics.
+
+- Built a dashboard enabling dynamic segmentation into "Cheap" and "Expensive" shipping categories to support strategic decisions around free shipping policies.
